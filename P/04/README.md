@@ -30,7 +30,7 @@ Maximum-Likelihood
 
 | State 1 | State 2 | Transition-likelihood |
 | ------- | ------- | --------------------- |
-| S1	  | S1		| 0.93					|
-| S1	  | S2      | 0.07					|
-| S2	  | S1		| 0.2					|
-| S2	  | S2		| 0.8					|
+| S1	  | S1		| 0.8					|
+| S1	  | S2      | 0.2					|
+| S2	  | S1		| 0.07					|
+| S2	  | S2		| 0.93					|
