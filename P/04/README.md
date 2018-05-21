@@ -48,5 +48,9 @@ Maximum-Likelihood
 
 ### Emissionsgenerierung
 
-[Script](./a4b.py)
+[Emissionsgenerierung (python)](./a4b.py)
 
+### Viterbi
+
+
+[Viterbi (python)](./a4c.py)
