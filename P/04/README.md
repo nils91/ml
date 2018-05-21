@@ -48,5 +48,5 @@ Maximum-Likelihood
 
 ### Emissionsgenerierung
 
-[Script](../blob/master/P/04/a4b.py)
 [Script](./a4b.py)
+
