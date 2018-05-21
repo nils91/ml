@@ -52,4 +52,5 @@ def emission_generate():
         
     
 for i in range(100):
-    print(emission_generate())
+    print("Current state is ",curstate)
+    print("Emission is ",emission_generate())
