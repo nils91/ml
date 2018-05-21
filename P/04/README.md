@@ -52,5 +52,4 @@ Maximum-Likelihood
 
 ### Viterbi
 
-
 [Viterbi (python)](./a4c.py)
