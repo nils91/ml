@@ -77,3 +77,7 @@ Mit HMMs wird versucht, von Beobachtungen (Emissionen) eines Systems auf dessen 
 
 1. Markow-Eigenschaft: Der aktuelle Wert des ersten Zustands hängt ausschlieÿlich von seinem letzten Wert ab 
 2. Markow-Eigenschaft: Der aktuelle Wert des zweiten Zustands hängt ausschlieÿlich vom aktuellen Wert des ersten ab
+
+### CRFs und logistische Regression
+
+Logistische Regression kann als vereinfachtes CRF gesehen werden. Logistische Regression und CRFs sind beide diskriminative Modelle. 
