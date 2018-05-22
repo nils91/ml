@@ -6,7 +6,7 @@ def get_trans_prob(start,target):
     for i in range(len(transitions)):
         if transitions[i][0]==start-1 and transitions[i][1]==target-1:
             return transitions[i][2]
-    return 0
+    return 1
 
 emissions=[[1,0.1667,0.58334],[2,0.1667,0.08334],[3,0.1667,0.08334],[4,0.1667,0.08334],[5,0.1667,0.08334],[6,0.1667,0.08334]]
 possible_emissions=[1,2,3,4,5,6]
@@ -125,17 +125,17 @@ def get_colluding_pre_state_rec(t,i):
             maximum=val
     return argmaximum
 
-def get_q_star(t):
+def get_q(t):
     if t == n:
-        argmaximum=-1
-        maximum=-1
+        argmaximum=0
+        maximum=0
         for j in range(1,len(states)+1):
             val=get_maximum_combinational_probability_rec(n,j)
             if val>maximum:
                 argmaximum=j
                 maximum=val
         return argmaximum
-    return get_colluding_pre_state_rec(t+1,get_q_star(t+1))
+    return get_colluding_pre_state_rec(t+1,get_q(t+1))
 
 def get_prob_o_q_star():
     maximum=0;
@@ -144,14 +144,14 @@ def get_prob_o_q_star():
 
 pred_sequence=[];
 for i in range(n):
-    pred_sequence.append(get_q_star(i+1))
+    pred_sequence.append(get_q(i+1))
 
 def get_accuracy():
     accuracy=0;
-    for i in range(len(sequence)):
-        if state_sequence[i] == pred_sequence[i]:
+    for i in range(1,len(sequence)):
+        if state_sequence[i-1] == pred_sequence[i]:
             accuracy+=1
-    return accuracy/n
+    return accuracy/(n-1)
 print("Sequence: ",sequence)
 print("State sequence: ",state_sequence)
 print("Predicted state sequence: ",pred_sequence)

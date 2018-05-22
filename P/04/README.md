@@ -53,3 +53,27 @@ Maximum-Likelihood
 ### Viterbi
 
 [Viterbi (python)](./a4c.py)
+
+## Aufgabe 4
+
+### CRFs (Conditional Random Fields) vs. HMMs (Hidden Markov Models)
+
+#### Unterschiede
+
+HMMs sind ein generatives Modell, CRFs ein diskriminatives. CRFs können komplexere Abhängigkeiten zwischen Variablen modellieren als HMMs.
+
+#### Ähnlichkeiten
+
+#### CRFs (Conditional Random Fields)
+
+CRFs modellieren nur die bedingten Wahrscheinlichkeiten. Jeder Zustand hängt nicht nur vom vorherigen Zustand ab. CRFs sind supervised.
+
+#### HMMs (Hidden Markov Models)
+
+![Hidden Markov Model](./hmm.png)
+Mit HMMs wird versucht, von Beobachtungen (Emissionen) eines Systems auf dessen Zustand zu schliessen. Der Zustand des Systems zu einem bestimmten Zeitpunkt ist dabei unbekannt (versteckt/hidden). Die Übergangswahrscheinlichkeiten von einem Zustand in den anderen hängen nur vom aktuellen Zustand ab. HMMs sind ein generatives Modell, d.h. sie können selber Beispiele erzeugen. Bei HMMs wird die vollständige Wahrscheinlichkeitsverteilung von Zustandsübergängen sowie Beobachtungen modelliert.
+
+##### Markov-Eigenschaften
+
+1. Markow-Eigenschaft: Der aktuelle Wert des ersten Zustands hängt ausschlieÿlich von seinem letzten Wert ab 
+2. Markow-Eigenschaft: Der aktuelle Wert des zweiten Zustands hängt ausschlieÿlich vom aktuellen Wert des ersten ab
