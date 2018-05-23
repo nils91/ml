@@ -150,6 +150,7 @@ def get_prob_o_q_star():
 
 pred_sequence=[];
 for i in range(n):
+    print("Working(",i+1,")")
     pred_sequence.append(get_q(i+1))
 
 def get_accuracy():
