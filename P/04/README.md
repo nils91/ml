@@ -4,12 +4,15 @@
 MEMM = Maximum entropy Markov model
 Kombination aus HMMs und Maximum entropy models
 Nimmmt an, das EWerte miteinander verbunden sind und nicht unabhängig
-Label probability geht in transition probability
+Beobachtungen sind nicht nur vom Zustand, sondern auch von der vorherigen Beobachtung abhängig.
 Effizienter als HMMs/CRFs
 
 ##   Aufgabe 3
 
 ### Baum-Welch und EM
+
+Em-Algorithmus für HMM
+
 Forward-Backward-Algorithmus
 Berechnet zuerst Maximum-Likelihood
 Dann Frequenz
@@ -18,7 +21,7 @@ Dann Frequenz
 Frequenz der Übergangs-Zustands-Paar Werte
 
 ### Maximization
-Maximum-Likelihood
+Maximum-Likelihood neu berechnen anhand der Frequenz
 
 ## Aufgabe 2
 
@@ -71,7 +74,7 @@ CRFs modellieren nur die bedingten Wahrscheinlichkeiten. Jeder Zustand hängt ni
 #### HMMs (Hidden Markov Models)
 
 ![Hidden Markov Model](./hmm.png)
-Mit HMMs wird versucht, von Beobachtungen (Emissionen) eines Systems auf dessen Zustand zu schliessen. Der Zustand des Systems zu einem bestimmten Zeitpunkt ist dabei unbekannt (versteckt/hidden). Die Übergangswahrscheinlichkeiten von einem Zustand in den anderen hängen nur vom aktuellen Zustand ab. HMMs sind ein generatives Modell, d.h. sie können selber Beispiele erzeugen. Bei HMMs wird die vollständige Wahrscheinlichkeitsverteilung von Zustandsübergängen sowie Beobachtungen modelliert.
+Mit HMMs wird versucht, von Beobachtungen (Emissionen) eines Systems auf dessen Zustand zu schliessen. Der Zustand des Systems zu einem bestimmten Zeitpunkt ist dabei unbekannt (versteckt/hidden). Die Übergangswahrscheinlichkeiten von einem Zustand in den anderen hängen nur vom aktuellen Zustand ab und sind konstant. HMMs sind ein generatives Modell, d.h. sie können selber Beispiele erzeugen. Bei HMMs wird die vollständige Wahrscheinlichkeitsverteilung von Zustandsübergängen sowie Beobachtungen modelliert. Beobachtungswahrscheinlichkeiten sind nur vom aktuellen Zustand und nicht von anderen Beobachtungen abhängig.
 
 ##### Markov-Eigenschaften
 

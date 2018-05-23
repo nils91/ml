@@ -1,6 +1,6 @@
 import random
 
-transitions=[[0,0,0.8],[0,1,0.2],[1,0,0.07],[1,1,0.93]]
+transitions=[[0,0,0.0],[0,1,1],[1,0,1],[1,1,0]]
 
 def get_trans_prob(start,target):
     for i in range(len(transitions)):
@@ -8,14 +8,14 @@ def get_trans_prob(start,target):
             return transitions[i][2]
     return 1
 
-emissions=[[1,0.1667,0.58334],[2,0.1667,0.08334],[3,0.1667,0.08334],[4,0.1667,0.08334],[5,0.1667,0.08334],[6,0.1667,0.08334]]
+emissions=[[1,1/5,0],[2,1/5,0],[3,1/5,0],[4,1/5,0],[5,1/5,0],[6,0,1]]
 possible_emissions=[1,2,3,4,5,6]
 states=[0,1]
 start_state_prob=[1,0]
 
 hmm=[states,possible_emissions,transitions,emissions,start_state_prob]
 
-n=18
+n=10
 
 def emission_generate():
     def cube():        
