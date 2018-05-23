@@ -15,7 +15,7 @@ start_state_prob=[1,0]
 
 hmm=[states,possible_emissions,transitions,emissions,start_state_prob]
 
-n=18
+n=30
 
 def emission_generate():
     def cube():        
@@ -92,6 +92,7 @@ def get_emissions_prob_in_state(state,em):
 curstate=get_start_state()
 sequence=[]
 state_sequence=[]
+pred_state_seq=[-1]*n
 for i in range(n):
     state_sequence.append(curstate+1)
     sequence.append(emission_generate())
@@ -119,7 +120,7 @@ def get_maximum_combinational_probability_rec(t,i):
     em_prob=get_emissions_prob_in_state(i,em)
     return em_prob*maximum
 
-def get_colluding_pre_state_rec(t,i):
+def get_colluding_pre_state_rec(t,i):   
     if t==1:
         return get_colluding_pre_state_init()
     argmaximum=0
@@ -132,6 +133,9 @@ def get_colluding_pre_state_rec(t,i):
     return argmaximum
 
 def get_q(t):
+    global pred_state_seq
+    if pred_state_seq[t-1] != -1:
+        return pred_state_seq[t-1]
     if t == n:
         argmaximum=0
         maximum=0
@@ -140,27 +144,29 @@ def get_q(t):
             if val>maximum:
                 argmaximum=j
                 maximum=val
+        pred_state_seq[t-1]=argmaximum
         return argmaximum
-    return get_colluding_pre_state_rec(t+1,get_q(t+1))
+    q=get_colluding_pre_state_rec(t+1,get_q(t+1))
+    pred_state_seq[t-1]=q
+    return q
 
 def get_prob_o_q_star():
     maximum=0;
     for j in range(1,len(states)+1):
         maximum=max(maximum,get_maximum_combinational_probability_rec(n,j))
 
-pred_sequence=[];
-for i in range(n):
-    print("Working(",i+1,")")
-    pred_sequence.append(get_q(i+1))
+print("start")
+get_q(1)
+get_q(n)
 
 def get_accuracy():
     accuracy=0;
     for i in range(0,len(sequence)):
-        if state_sequence[i] == pred_sequence[i]:
+        if state_sequence[i] == pred_state_seq[i]:
             accuracy+=1
     return accuracy/n
 
 print("Sequence: ",sequence)
 print("State sequence: ",state_sequence)
-print("Predicted state sequence: ",pred_sequence)
+print("Predicted state sequence: ",pred_state_seq)
 print("Prediction accuracy: ",get_accuracy())
